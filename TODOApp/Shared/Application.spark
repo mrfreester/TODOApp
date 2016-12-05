@@ -1,0 +1,11 @@
+﻿<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>ToDo App</title>
+  </head>
+  <body>
+    <div id="pageContent">
+      <use:view />
+    </div>
+  </body>
+</html>
