@@ -1,4 +1,4 @@
-﻿source https://nuget.org/api/v2
+source https://nuget.org/api/v2
 nuget FubuMVC.Core == 3.0.0.2223-alpha
 nuget FubuCore
 nuget HtmlTags
