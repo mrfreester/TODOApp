@@ -13,6 +13,7 @@ nuget RavenDB.Database 2.5.2750
 nuget RavenDB.Embedded 2.5.2750
 nuget RavenDB.Server 2.5.2750
 nuget structuremap.automocking == 4.0.0.315
+nuget npgsql
  
  
 source https://www.myget.org/F/fubumvc-edge

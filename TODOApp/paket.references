@@ -8,3 +8,4 @@ FubuMVC.RavenDb
 RavenDB.Client
 RavenDB.Database
 RavenDB.Embedded
+Npgsql
