@@ -7,11 +7,6 @@ nuget structuremap == 4.0.0.315
 nuget FubuMVC.Spark == 3.0.0.2223-alpha
 nuget spark == 1.8.0.0
 nuget NUnit
-nuget FubuMVC.RavenDb == 3.0.0.2223-alpha
-nuget RavenDB.Client == 2.5.2750
-nuget RavenDB.Database 2.5.2750
-nuget RavenDB.Embedded 2.5.2750
-nuget RavenDB.Server 2.5.2750
 nuget structuremap.automocking == 4.0.0.315
 nuget npgsql
  

@@ -6,29 +6,16 @@ NUGET
       HtmlTags (2.1.0.183)
       Newtonsoft.Json (4.5.9)
       structuremap (>= 4.0.0.315)
-    FubuMVC.RavenDb (3.0.0.2223-alpha)
-      FubuCore (>= 0.9.9.180)
-      FubuMVC.Core (>= 3.0)
-      RavenDB.Client (2.5.2750)
-      RavenDB.Database (2.5.2750)
-      RavenDB.Embedded (2.5.2750)
-      structuremap (>= 4.0)
     FubuMVC.Spark (3.0.0.2223-alpha)
       FubuMVC.Core (>= 3.0)
       Spark (>= 1.7.5)
     HtmlTags (2.1.0.183)
-    Microsoft.CompilerServices.AsyncTargetingPack (1.0.1) - framework: net10, net11, net20, net30, net35, net40, net40-full
-    Microsoft.Data.Edm (5.8.1)
-    Microsoft.Data.OData (5.8.1)
-      Microsoft.Data.Edm (5.8.1)
-      System.Spatial (5.8.1)
     Microsoft.NETCore.Platforms (1.1) - framework: dnxcore50, >= netstandard13
     Microsoft.NETCore.Targets (1.1) - framework: dnxcore50, >= netstandard13
     Microsoft.Win32.Primitives (4.3) - framework: >= netstandard13
       Microsoft.NETCore.Platforms (>= 1.1) - framework: >= netstandard13
       Microsoft.NETCore.Targets (>= 1.1) - framework: >= netstandard13
       System.Runtime (>= 4.3) - framework: >= netstandard13
-    Microsoft.WindowsAzure.ConfigurationManager (3.2.3)
     Newtonsoft.Json (4.5.9)
     Npgsql (3.1.9)
       Microsoft.Win32.Primitives (>= 4.0.1) - framework: >= netstandard13
@@ -58,19 +45,6 @@ NUGET
       System.Threading.Timer (>= 4.0.1) - framework: >= netstandard13
     NUnit (2.6.3)
     NUnit.Runners (2.6.3)
-    RavenDB.Client (2.5.2750)
-      Microsoft.CompilerServices.AsyncTargetingPack  - framework: net10, net11, net20, net30, net35, net40, net40-full
-    RavenDB.Database (2.5.2750)
-      Microsoft.CompilerServices.AsyncTargetingPack  - framework: net10, net11, net20, net30, net35, net40, net40-full
-      Microsoft.Data.Edm (>= 5.2)
-      Microsoft.Data.OData (>= 5.2)
-      Microsoft.WindowsAzure.ConfigurationManager (>= 1.8)
-      System.Spatial (>= 5.2)
-      WindowsAzure.Storage (>= 2.0)
-    RavenDB.Embedded (2.5.2750)
-      RavenDB.Client (2.5.2750)
-      RavenDB.Database (2.5.2750)
-    RavenDB.Server (2.5.2750)
     RhinoMocks (3.6.1)
     runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl (4.3) - framework: netstandard13, >= netstandard16
     runtime.fedora.23-x64.runtime.native.System.Security.Cryptography.OpenSsl (4.3) - framework: netstandard13, >= netstandard16
@@ -520,7 +494,6 @@ NUGET
       System.Security.Principal (>= 4.3) - framework: >= netstandard13
       System.Text.Encoding (>= 4.3) - framework: >= netstandard13
       System.Threading (>= 4.3) - framework: >= netstandard13
-    System.Spatial (5.8.1)
     System.Text.Encoding (4.3) - framework: dnxcore50, >= netstandard13
       Microsoft.NETCore.Platforms (>= 1.1) - framework: dnxcore50, netstandard10, >= netstandard13
       Microsoft.NETCore.Targets (>= 1.1) - framework: dnxcore50, netstandard10, >= netstandard13
@@ -558,9 +531,6 @@ NUGET
       Microsoft.NETCore.Platforms (>= 1.1) - framework: dnxcore50, >= netstandard12
       Microsoft.NETCore.Targets (>= 1.1) - framework: dnxcore50, >= netstandard12
       System.Runtime (>= 4.3) - framework: dnxcore50, >= netstandard12
-    WindowsAzure.Storage (2.1.0.4)
-      Microsoft.Data.OData (>= 5.2)
-      Microsoft.WindowsAzure.ConfigurationManager (>= 1.8)
   remote: https://www.myget.org/F/fubumvc-edge
     FubuTestingSupport (2.0.0.291)
       FubuCore
