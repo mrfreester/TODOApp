@@ -1,3 +1,5 @@
 ﻿<viewdata model="TODOApp.Endpoints.Home.HomeViewModel" />
  <content name="title">Home Page</content>
-<h1>!{ Model.Text }</h1>
+<ul>
+    <li each="var task in Model.Tasks">!{task.TaskItem}</li>
+</ul>
