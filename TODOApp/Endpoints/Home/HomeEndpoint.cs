@@ -1,5 +1,6 @@
 ﻿
 using FubuMVC.Core;
+using TODOApp.Models;
 
 namespace TODOApp.Endpoints.Home
 {
@@ -8,6 +9,9 @@ namespace TODOApp.Endpoints.Home
         [UrlPattern("")] //overides the default translation of the action to a url (in this case, the get_index() with a default url pattern of "/index" will now have a blank url pattern, effectively turning it into the home page)
         public HomeViewModel get_index()
         {
+            TaskHelper helper = new TaskHelper();
+
+            helper.Tasks();
             return new HomeViewModel { Text = "Hello Fubu 3!!" };
         }
 
