@@ -63,6 +63,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="CSS\style.css" />
     <Content Include="Global.asax" />
     <Content Include="paket.references" />
     <Content Include="Endpoints\Home\Index.spark" />

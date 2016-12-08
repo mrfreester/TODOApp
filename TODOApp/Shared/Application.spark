@@ -1,9 +1,17 @@
 ﻿<!doctype html>
+
 <html lang="en-US">
   <head>
-    <title>ToDo App</title>
+      <link rel="stylesheet" type="text/css" href="../CSS/style.css" />
+    <title>
+        <use:title>TODO App</use:title>
+    </title>
   </head>
   <body>
+      <header>
+          <h1>TODOApp</h1>
+          <hr />
+      </header>
     <div id="pageContent">
       <use:view />
     </div>
