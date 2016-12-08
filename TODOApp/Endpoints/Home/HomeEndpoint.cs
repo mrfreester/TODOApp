@@ -10,6 +10,14 @@ namespace TODOApp.Endpoints.Home
         {
             return new HomeViewModel { Text = "Hello Fubu 3!!" };
         }
+
+        [UrlPattern("AddTask")]
+        public HomeViewModel AddTask()
+        {
+            return new HomeViewModel { 
+                Text = "Added a task"
+            };
+        }
     }
 
     public class HomeViewModel

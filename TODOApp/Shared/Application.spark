@@ -13,6 +13,9 @@
           <hr />
       </header>
     <div id="pageContent">
+        <form action="/AddTask" method="post">
+            <button type="submit">Add Task</button>
+        </form>
       <use:view />
     </div>
   </body>
