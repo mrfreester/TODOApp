@@ -24,5 +24,9 @@ namespace TODOApp.Models
         {
             DbConnection.AddTask(task);
         }
+        public void DeleteTask(int taskId)
+        {
+            DbConnection.DeleteTask(taskId);
+        }
     }
 }

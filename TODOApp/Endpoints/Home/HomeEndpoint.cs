@@ -13,31 +13,58 @@ namespace TODOApp.Endpoints.Home
         private readonly TaskHelper _helper = new TaskHelper();
 
         [UrlPattern("")] //overides the default translation of the action to a url (in this case, the get_index() with a default url pattern of "/index" will now have a blank url pattern, effectively turning it into the home page)
-        public HomeViewModel get_index()
+        public HomeViewModel get_index(HomeViewModel model)
         {
-            return new HomeViewModel { Tasks = _helper.Tasks() };
+            model.Tasks = _helper.Tasks();
+            return model;
         }
 
         [UrlPattern("AddTask")]
-        public FubuContinuation post_add_task(AddTaskPostInputModel input)
+        public HomeViewModel post_add_task(AddTaskPostInputModel input)
         {
             _helper.AddTask(input.AddTask);
 
-            return FubuContinuation.RedirectTo<HomeEndpoint>(x => x.get_index());
+            return new HomeViewModel
+            {
+                Informative = "Added task: " + input.AddTask ,
+                Tasks = _helper.Tasks()
+               
+            };
+
+            //return FubuContinuation.RedirectTo<HomeEndpoint>(x => x.get_index(new HomeViewModel {Informative = "Added task " + input.AddTask}));
+        }
+        [UrlPattern("DeleteTask")]
+        public HomeViewModel post_delete_task(DeleteTaskPostInputModel input)
+        {
+            _helper.DeleteTask(input.Id);
+
+            return new HomeViewModel
+            {
+                Informative = "Deleted task: " + input.Task,
+                Tasks = _helper.Tasks()
+            };
+            //return FubuContinuation.RedirectTo<HomeEndpoint>(x => x.get_index(new HomeViewModel
+            //{
+            //    Informative = "Deleted Task: " + input.Task,
+            //    Tasks = _helper.Tasks()
+            //}));
         }
     }
 
     public class AddTaskPostInputModel
     {
-        [MaximumStringLength(3)]
+        [MaximumStringLength(300)]
         public string AddTask { get; set; }
+    }
+    public class DeleteTaskPostInputModel
+    {
+        public string Task { get; set; }
+        public int Id { get; set; }
     }
 
     public class HomeViewModel
     {
+        public string Informative { get; set; }
         public List<Task> Tasks { get; set; }
-
-        [MaximumStringLength(3)]
-        public string AddTask { get; set; }
     }
 }
