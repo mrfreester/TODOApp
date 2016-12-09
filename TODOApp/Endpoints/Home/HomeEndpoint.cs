@@ -1,6 +1,8 @@
 ﻿
 using System.Collections.Generic;
 using FubuMVC.Core;
+using FubuMVC.Core.Continuations;
+using FubuMVC.Core.Validation;
 using TODOApp.Models;
 
 namespace TODOApp.Endpoints.Home
@@ -17,16 +19,25 @@ namespace TODOApp.Endpoints.Home
         }
 
         [UrlPattern("AddTask")]
-        public HomeViewModel AddTask()
+        public FubuContinuation post_add_task(AddTaskPostInputModel input)
         {
-            return new HomeViewModel {
-                Tasks = _helper.Tasks()
-            };
+            _helper.AddTask(input.AddTask);
+
+            return FubuContinuation.RedirectTo<HomeEndpoint>(x => x.get_index());
         }
+    }
+
+    public class AddTaskPostInputModel
+    {
+        [MaximumStringLength(3)]
+        public string AddTask { get; set; }
     }
 
     public class HomeViewModel
     {
         public List<Task> Tasks { get; set; }
+
+        [MaximumStringLength(3)]
+        public string AddTask { get; set; }
     }
 }

@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Web;
 using Npgsql;
+using NpgsqlTypes;
 
 namespace TODOApp.Models
 {
@@ -15,7 +16,10 @@ namespace TODOApp.Models
         {
             using (NpgsqlConnection con = new NpgsqlConnection(ConnectionString))
             {
-
+                NpgsqlCommand command = new NpgsqlCommand("INSERT INTO task(task) VALUES (:Task)", con);
+                command.Parameters.Add("@Task", NpgsqlDbType.Text, 300).Value = task;
+                con.Open();
+                command.ExecuteNonQuery();
             }
         }
 
