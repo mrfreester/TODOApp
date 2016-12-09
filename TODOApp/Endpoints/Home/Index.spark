@@ -9,7 +9,14 @@
         </p>
     </fieldset>
 </Form>
-<Scripts />
-<ul>
-    <li each="var task in Model.Tasks">!{task.TaskItem}</li>
-</ul>
+<for each="var task in Model.Tasks">
+    <form method="post" >
+        <fieldset>
+            <button type="submit" formaction="/DeleteTask">Delete</button>
+                !{task.TaskItem}
+                <input name="Id" value="!{task.Id}" type="hidden" />
+            <input name="Task" value="!{task.TaskItem}" type="hidden"/>
+        </fieldset>
+    </form>
+</for>
+<p><b>!{Model.Informative}</b></p>
