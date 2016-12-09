@@ -1,5 +1,15 @@
 ﻿<viewdata model="TODOApp.Endpoints.Home.HomeViewModel" />
  <content name="title">Home Page</content>
+<Form action="/AddTask" method="post">
+    <fieldset>
+        <p>
+            <Label name="AddTask" />
+            <Input name="AddTask" />
+            <button type="submit">Add Task</button>
+        </p>
+    </fieldset>
+</Form>
+<Scripts />
 <ul>
     <li each="var task in Model.Tasks">!{task.TaskItem}</li>
 </ul>

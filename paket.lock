@@ -1,6 +1,8 @@
 NUGET
   remote: https://www.nuget.org/api/v2
     FubuCore (2.0.1.321)
+    FubuLocalization (1.1.0.184)
+      FubuCore (>= 0.9.9.139)
     FubuMVC.Core (3.0.0.2223-alpha)
       FubuCore (>= 2.0)
       HtmlTags (2.1.0.183)
@@ -9,6 +11,10 @@ NUGET
     FubuMVC.Spark (3.0.0.2223-alpha)
       FubuMVC.Core (>= 3.0)
       Spark (>= 1.7.5)
+    FubuValidation (0.9.10.709)
+      FubuCore (>= 0.9.9.151)
+      FubuLocalization
+      HtmlTags
     HtmlTags (2.1.0.183)
     Microsoft.NETCore.Platforms (1.1) - framework: dnxcore50, >= netstandard13
     Microsoft.NETCore.Targets (1.1) - framework: dnxcore50, >= netstandard13

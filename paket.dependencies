@@ -1,6 +1,7 @@
 source https://nuget.org/api/v2
 nuget FubuMVC.Core == 3.0.0.2223-alpha
 nuget FubuCore
+nuget FubuValidation
 nuget HtmlTags
 nuget RhinoMocks
 nuget structuremap == 4.0.0.315

@@ -19,5 +19,10 @@ namespace TODOApp.Models
                     .ToList();
             return tasks;
         }
+
+        public void AddTask(string task)
+        {
+            DbConnection.AddTask(task);
+        }
     }
 }
