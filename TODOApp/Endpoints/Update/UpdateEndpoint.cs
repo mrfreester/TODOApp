@@ -29,11 +29,7 @@ namespace TODOApp.Endpoints.Update
 
             _helper.UpdateTask(input.Id, input.Task);
 
-            return FubuContinuation.TransferTo<HomeEndpoint>(x => x.get_index(new HomeViewModel()
-            {
-                Informative = "Update task: -" + oldTask + "- to: " + input.Task,
-                Tasks = _helper.GetTasks()
-            }));
+            return FubuContinuation.RedirectTo<HomeEndpoint>(x => x.get_index(new HomeViewModel()));
         }
     }
 
