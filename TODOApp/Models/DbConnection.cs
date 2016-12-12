@@ -24,7 +24,13 @@ namespace TODOApp.Models
         }
         public static void DeleteTask(int taskId)
         {
-
+            using (NpgsqlConnection con = new NpgsqlConnection(ConnectionString))
+            {
+                NpgsqlCommand command = new NpgsqlCommand("DELETE FROM task WHERE id=:Task", con);
+                command.Parameters.Add("@Task", NpgsqlDbType.Integer).Value = taskId;
+                con.Open();
+                command.ExecuteNonQuery();
+            }
         }
 
         public static DataSet SelectAllTasks()
