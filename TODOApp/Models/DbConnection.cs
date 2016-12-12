@@ -24,13 +24,7 @@ namespace TODOApp.Models
         }
         public static void DeleteTask(int taskId)
         {
-            using (NpgsqlConnection con = new NpgsqlConnection(ConnectionString))
-            {
-                NpgsqlCommand command = new NpgsqlCommand("DELETE FROM task WHERE id=:Task", con);
-                command.Parameters.Add("@Task", NpgsqlDbType.Integer).Value = taskId;
-                con.Open();
-                command.ExecuteNonQuery();
-            }
+
         }
 
         public static DataSet SelectAllTasks()
@@ -45,6 +39,33 @@ namespace TODOApp.Models
             }
 
             return data;
+        }
+
+        public static DataSet GetTask(int taskId)
+        {
+            DataSet data = new DataSet();
+            using (NpgsqlConnection con = new NpgsqlConnection(ConnectionString))
+            {
+                NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM task Where id=:Task", con);
+                command.Parameters.Add("@Task", NpgsqlDbType.Integer).Value = taskId;
+                NpgsqlDataAdapter da = new NpgsqlDataAdapter(command);
+
+                da.Fill(data);
+            }
+
+            return data;
+        }
+
+        public static void UpdateTask(int taskId, string updatedText)
+        {
+            using (NpgsqlConnection con = new NpgsqlConnection(ConnectionString))
+            {
+                NpgsqlCommand command = new NpgsqlCommand("UPDATE task SET task=:UpdateText WHERE id=:Task", con);
+                command.Parameters.Add("@Task", NpgsqlDbType.Integer).Value = taskId;
+                command.Parameters.Add("@UpdateText", NpgsqlDbType.Text, 300).Value = updatedText;
+                con.Open();
+                command.ExecuteNonQuery();
+            }
         }
     }
 }

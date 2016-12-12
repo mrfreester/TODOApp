@@ -8,7 +8,7 @@ namespace TODOApp.Models
 {
     public class TaskHelper
     {
-        public List<Task> Tasks()
+        public List<Task> GetTasks()
         {
             DataSet data = DbConnection.SelectAllTasks();
 
@@ -24,9 +24,25 @@ namespace TODOApp.Models
         {
             DbConnection.AddTask(task);
         }
+
         public void DeleteTask(int taskId)
         {
             DbConnection.DeleteTask(taskId);
+        }
+
+        public Task GetTask(int taskId)
+        {
+            DataSet data = DbConnection.GetTask(taskId);
+
+            return
+                data.Tables[0].AsEnumerable().Select(
+                        datarow => new Task {Id = datarow.Field<int>("id"), TaskItem = datarow.Field<string>("task")})
+                    .First();
+        }
+
+        public void UpdateTask(int taskId, string updatedText)
+        {
+            DbConnection.UpdateTask(taskId, updatedText);
         }
     }
 }
