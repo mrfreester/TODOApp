@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using FubuMVC.Core;
 using FubuMVC.Core.Continuations;
 using FubuMVC.Core.Validation;
+using TODOApp.Endpoints.Update;
 using TODOApp.Models;
 
 namespace TODOApp.Endpoints.Home
@@ -51,18 +52,10 @@ namespace TODOApp.Endpoints.Home
             //}));
         }
 
-        [UrlPattern("EditTask")]
-        public HomeViewModel post_edit_task(TaskPostInputModel input)
+        [UrlPattern("UpdateTask")]
+        public FubuContinuation post_edit_task(TaskPostInputModel input)
         {
-            string oldTask = _helper.GetTask(input.Id).TaskItem;
-
-            _helper.UpdateTask(input.Id, input.Task);
-
-            return new HomeViewModel
-            {
-                Informative = "Changed task: -" + oldTask + "- to: " + input.Task,
-                Tasks = _helper.GetTasks()
-            };
+            return FubuContinuation.TransferTo<UpdateEndpoint>(x => x.get_update(new UpdateInputModel()));
         }
     }
 
