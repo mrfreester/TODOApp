@@ -15,7 +15,7 @@ namespace TODOApp.Endpoints.Home
         [UrlPattern("")] //overides the default translation of the action to a url (in this case, the get_index() with a default url pattern of "/index" will now have a blank url pattern, effectively turning it into the home page)
         public HomeViewModel get_index(HomeViewModel model)
         {
-            model.Tasks = _helper.Tasks();
+            model.Tasks = _helper.GetTasks();
             return model;
         }
 
@@ -27,27 +27,42 @@ namespace TODOApp.Endpoints.Home
             return new HomeViewModel
             {
                 Informative = "Added task: " + input.AddTask ,
-                Tasks = _helper.Tasks()
+                Tasks = _helper.GetTasks()
                
             };
 
             //return FubuContinuation.RedirectTo<HomeEndpoint>(x => x.get_index(new HomeViewModel {Informative = "Added task " + input.AddTask}));
         }
+
         [UrlPattern("DeleteTask")]
-        public HomeViewModel post_delete_task(DeleteTaskPostInputModel input)
+        public HomeViewModel post_delete_task(TaskPostInputModel input)
         {
             _helper.DeleteTask(input.Id);
 
             return new HomeViewModel
             {
                 Informative = "Deleted task: " + input.Task,
-                Tasks = _helper.Tasks()
+                Tasks = _helper.GetTasks()
             };
             //return FubuContinuation.RedirectTo<HomeEndpoint>(x => x.get_index(new HomeViewModel
             //{
             //    Informative = "Deleted Task: " + input.Task,
-            //    Tasks = _helper.Tasks()
+            //    Tasks = _helper.GetTasks()
             //}));
+        }
+
+        [UrlPattern("EditTask")]
+        public HomeViewModel post_edit_task(TaskPostInputModel input)
+        {
+            string oldTask = _helper.GetTask(input.Id).TaskItem;
+
+            _helper.UpdateTask(input.Id, input.Task);
+
+            return new HomeViewModel
+            {
+                Informative = "Changed task: -" + oldTask + "- to: " + input.Task,
+                Tasks = _helper.GetTasks()
+            };
         }
     }
 
@@ -56,7 +71,7 @@ namespace TODOApp.Endpoints.Home
         [MaximumStringLength(300)]
         public string AddTask { get; set; }
     }
-    public class DeleteTaskPostInputModel
+    public class TaskPostInputModel
     {
         public string Task { get; set; }
         public int Id { get; set; }
