@@ -15,7 +15,7 @@ namespace TODOApp.Models
             List<Task> tasks =
                 data.Tables[0].AsEnumerable()
                     .Select(
-                        datarow => new Task {Id = datarow.Field<int>("id"), TaskItem = datarow.Field<string>("task")})
+                        datarow => new Task {Id = datarow.Field<int>("id"), TaskItem = datarow.Field<string>("task").Trim()})
                     .ToList();
             return tasks;
         }
@@ -36,7 +36,7 @@ namespace TODOApp.Models
 
             return
                 data.Tables[0].AsEnumerable().Select(
-                        datarow => new Task {Id = datarow.Field<int>("id"), TaskItem = datarow.Field<string>("task")})
+                        datarow => new Task {Id = datarow.Field<int>("id"), TaskItem = datarow.Field<string>("task").Trim()})
                     .First();
         }
 
