@@ -1,0 +1,17 @@
+﻿<viewdata model="TODOApp.Endpoints.Update.UpdateViewModel" />
+<content name="title">Edit Page</content>
+<fieldset>
+    <p>
+        Editing Task: !{Model.Task}
+    </p>
+</fieldset>
+<Form action="/EditTask" method="post">
+    <fieldset>
+        <p>
+            <input name="Id" value="!{Model.Id}" type="hidden" />
+            <Label name="Task" />
+            <Input name="Task" value="!{Model.Task}"/>
+            <button type="submit">Submit Changes</button>
+        </p>
+    </fieldset>
+</Form>

@@ -97,6 +97,7 @@
     <Content Include="Endpoints\Home\Index.spark" />
     <Content Include="Shared\Application.spark" />
     <Content Include="Shared\_global.spark" />
+    <Content Include="Endpoints\Update\Update.spark" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -110,6 +111,7 @@
   <ItemGroup>
     <Compile Include="AppFubuRegistry.cs" />
     <Compile Include="CoreRegistry.cs" />
+    <Compile Include="Endpoints\Update\UpdateEndpoint.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

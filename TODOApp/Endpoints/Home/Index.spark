@@ -13,6 +13,7 @@
     <form method="post" >
         <fieldset>
             <button type="submit" formaction="/DeleteTask">Delete</button>
+            <button type="submit" formaction="/UpdateTask">Edit</button>
                 !{task.TaskItem}
                 <input name="Id" value="!{task.Id}" type="hidden" />
             <input name="Task" value="!{task.TaskItem}" type="hidden"/>
