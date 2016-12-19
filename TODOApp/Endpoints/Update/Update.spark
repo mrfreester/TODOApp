@@ -1,4 +1,4 @@
-﻿<viewdata model="TODOApp.Endpoints.Update.UpdateViewModel" />
+﻿<viewdata model="TODOApp.Endpoints.Update.UpdateInputModel" />
 <content name="title">Edit Page</content>
 <fieldset>
     <p>

@@ -3,8 +3,8 @@
 <Form action="/AddTask" method="post">
     <fieldset>
         <p>
-            <Label name="AddTask" />
-            <Input name="AddTask" />
+            <Label name="Task" />
+            <Input name="Task" />
             <button type="submit">Add Task</button>
         </p>
     </fieldset>

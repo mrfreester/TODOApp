@@ -21,13 +21,13 @@ namespace TODOApp.Endpoints.Home
         }
 
         [UrlPattern("AddTask")]
-        public HomeViewModel post_add_task(AddTaskPostInputModel input)
+        public HomeViewModel post_add_task(TaskPostInputModel input)
         {
-            _helper.AddTask(input.AddTask);
+            _helper.AddTask(input.Task);
 
             return new HomeViewModel
             {
-                Informative = "Added task: " + input.AddTask ,
+                Informative = "Added task: " + input.Task ,
                 Tasks = _helper.GetTasks()
                
             };
@@ -59,13 +59,9 @@ namespace TODOApp.Endpoints.Home
         }
     }
 
-    public class AddTaskPostInputModel
-    {
-        [MaximumStringLength(300)]
-        public string AddTask { get; set; }
-    }
     public class TaskPostInputModel
     {
+        [MaximumStringLength(300)]
         public string Task { get; set; }
         public int Id { get; set; }
     }

@@ -13,9 +13,9 @@ namespace TODOApp.Endpoints.Update
         private readonly TaskHelper _helper = new TaskHelper();
 
         [UrlPattern("UpdateTask")] 
-        public UpdateViewModel get_update(UpdateInputModel model)
+        public UpdateInputModel get_update(UpdateInputModel model)
         {
-            return new UpdateViewModel
+            return new UpdateInputModel
             {
                 Task = model.Task,
                 Id = model.Id
@@ -34,13 +34,6 @@ namespace TODOApp.Endpoints.Update
     }
 
     public class UpdateInputModel : FubuValidation.Notification
-    {
-        [Required, MinimumStringLength(3), MaximumStringLength(300)]
-        public string Task { get; set; }
-        public int Id { get; set; }
-    }
-
-    public class UpdateViewModel : FubuValidation.Notification
     {
         [Required, MinimumStringLength(3), MaximumStringLength(300)]
         public string Task { get; set; }
