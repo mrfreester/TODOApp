@@ -9,8 +9,10 @@ nuget FubuMVC.Spark == 3.0.0.2223-alpha
 nuget spark == 1.8.0.0
 nuget NUnit
 nuget structuremap.automocking == 4.0.0.315
-nuget npgsql
- 
+nuget EntityFramework
+nuget npgsql == 3.1.8
+nuget npgsql.EntityFramework
+nuget EntityFramework6.Npgsql == 3.1.1
  
 source https://www.myget.org/F/fubumvc-edge
 nuget FubuTestingSupport == 2.0.0.291

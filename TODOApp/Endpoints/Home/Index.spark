@@ -14,9 +14,9 @@
         <fieldset>
             <button type="submit" formaction="/DeleteTask">Delete</button>
             <button type="submit" formaction="/UpdateTask">Edit</button>
-                !{task.TaskItem}
-                <input name="Id" value="!{task.Id}" type="hidden" />
-            <input name="Task" value="!{task.TaskItem}" type="hidden"/>
+                !{task.task1}
+                <input name="Id" value="!{task.id}" type="hidden" />
+            <input name="Task" value="!{task.task1}" type="hidden"/>
         </fieldset>
     </form>
 </for>

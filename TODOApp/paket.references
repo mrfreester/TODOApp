@@ -6,3 +6,5 @@ FubuMVC.Spark
 FubuValidation
 spark
 Npgsql
+Npgsql.EntityFramework
+EntityFramework6.Npgsql

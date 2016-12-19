@@ -1,5 +1,6 @@
 ﻿using FubuMVC.Core.Registration;
 using StructureMap.Graph;
+using TODOApp.DataModel.Models;
 
 namespace TODOApp
 {
@@ -13,6 +14,8 @@ namespace TODOApp
                 //the main one to take note of is 'Fubu is IFubu'
                 x.TheCallingAssembly();
                 x.WithDefaultConventions();
+                For<ITaskContext>().Use<TaskContext>();
+
             });
         }
     }

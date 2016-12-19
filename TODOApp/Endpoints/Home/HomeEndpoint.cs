@@ -3,32 +3,40 @@ using System.Collections.Generic;
 using FubuMVC.Core;
 using FubuMVC.Core.Continuations;
 using FubuMVC.Core.Validation;
+using TODOApp.DataModel.Models;
 using TODOApp.Endpoints.Update;
-using TODOApp.Models;
 
 namespace TODOApp.Endpoints.Home
 {
 
     public class HomeEndpoint
     {
-        private readonly TaskHelper _helper = new TaskHelper();
+        //private readonly TaskHelper _helper = new TaskHelper();
+        private readonly ITaskContext _context;
+
+        public HomeEndpoint(ITaskContext context)
+        {
+            _context = context;
+        }
 
         [UrlPattern("")] //overides the default translation of the action to a url (in this case, the get_index() with a default url pattern of "/index" will now have a blank url pattern, effectively turning it into the home page)
         public HomeViewModel get_index(HomeViewModel model)
         {
-            model.Tasks = _helper.GetTasks();
+            model.Tasks = _context.GetTasks();
             return model;
         }
 
         [UrlPattern("AddTask")]
         public HomeViewModel post_add_task(TaskPostInputModel input)
         {
-            _helper.AddTask(input.Task);
+            task item = new task();
+            item.task1 = input.Task;
+            _context.AddTask(item);
 
             return new HomeViewModel
             {
                 Informative = "Added task: " + input.Task ,
-                Tasks = _helper.GetTasks()
+                Tasks = _context.GetTasks()
                
             };
 
@@ -38,12 +46,12 @@ namespace TODOApp.Endpoints.Home
         [UrlPattern("DeleteTask")]
         public HomeViewModel post_delete_task(TaskPostInputModel input)
         {
-            _helper.DeleteTask(input.Id);
+            _context.DeleteTask(input.Id);
 
             return new HomeViewModel
             {
                 Informative = "Deleted task: " + input.Task,
-                Tasks = _helper.GetTasks()
+                Tasks = _context.GetTasks()
             };
             //return FubuContinuation.RedirectTo<HomeEndpoint>(x => x.get_index(new HomeViewModel
             //{
@@ -69,6 +77,6 @@ namespace TODOApp.Endpoints.Home
     public class HomeViewModel
     {
         public string Informative { get; set; }
-        public List<Task> Tasks { get; set; }
+        public List<task> Tasks { get; set; }
     }
 }

@@ -1,5 +1,9 @@
 NUGET
   remote: https://www.nuget.org/api/v2
+    EntityFramework (6.1.3)
+    EntityFramework6.Npgsql (3.1.1)
+      EntityFramework (>= 6.0)
+      Npgsql (>= 3.1)
     FubuCore (2.0.1.321)
     FubuLocalization (1.1.0.184)
       FubuCore (>= 0.9.9.139)
@@ -23,7 +27,7 @@ NUGET
       Microsoft.NETCore.Targets (>= 1.1) - framework: >= netstandard13
       System.Runtime (>= 4.3) - framework: >= netstandard13
     Newtonsoft.Json (4.5.9)
-    Npgsql (3.1.9)
+    Npgsql (3.1.8)
       Microsoft.Win32.Primitives (>= 4.0.1) - framework: >= netstandard13
       System.Collections.Concurrent (>= 4.0.12) - framework: >= netstandard13
       System.ComponentModel.TypeConverter (>= 4.1) - framework: >= netstandard13
@@ -49,6 +53,9 @@ NUGET
       System.Threading (>= 4.0.11) - framework: >= netstandard13
       System.Threading.Thread (>= 4.0) - framework: >= netstandard13
       System.Threading.Timer (>= 4.0.1) - framework: >= netstandard13
+    Npgsql.EntityFramework (2.2.7)
+      EntityFramework (>= 6.0)
+      Npgsql (2.2.7)
     NUnit (2.6.3)
     NUnit.Runners (2.6.3)
     RhinoMocks (3.6.1)
